@@ -4,7 +4,7 @@ import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import './styles.css'
 
-const destination = 'https://www.instantfollow.com.br/welcome'
+const destination = 'https://www.instantfollow.com.br'
 
 function FloatingDot({ className, delay = 0 }) {
   const reduceMotion = useReducedMotion()
