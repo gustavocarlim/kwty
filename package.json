@@ -12,6 +12,7 @@
     "@vitejs/plugin-react": "latest",
     "lucide-react": "latest",
     "motion": "latest",
+    "mysql2": "3.24.6",
     "react": "latest",
     "react-dom": "latest",
     "tailwindcss": "latest",
