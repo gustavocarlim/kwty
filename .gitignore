@@ -1,0 +1,11 @@
+# Dependências: instale com `npm install`
+node_modules/
+
+# Credenciais: o repositório é público, nunca versione arquivos .env
+.env
+.env.local
+.env.*
+!.env.example
+
+# Configuração local de ferramentas
+.claude/
