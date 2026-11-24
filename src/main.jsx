@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import './styles.css'
+import { trackVisit } from './tracking'
 
 const destination = 'https://www.instantfollow.com.br'
 
@@ -97,6 +98,9 @@ function App() {
     </main>
   )
 }
+
+// fora do React para rodar uma única vez por carregamento
+trackVisit()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode><App /></StrictMode>,
