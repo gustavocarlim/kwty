@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import './styles.css'
+import { trackVisit, withClickIds } from './tracking'
 
 const destination = 'https://www.instantfollow.com.br'
 
@@ -77,7 +78,7 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
         >
-          <a className="cta" href={destination} target="_blank" rel="noopener noreferrer">
+          <a className="cta" href={withClickIds(destination)} target="_blank" rel="noopener noreferrer">
             <span>Get started</span>
             <span className="cta-icon"><ArrowUpRight size={20} strokeWidth={2.5} /></span>
           </a>
@@ -97,6 +98,9 @@ function App() {
     </main>
   )
 }
+
+// fora do React para rodar uma única vez por carregamento
+trackVisit()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode><App /></StrictMode>,
