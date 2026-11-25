@@ -2,7 +2,7 @@
 
 ## Rastreamento de visitas (gclid)
 
-`src/tracking.js` envia cada visita para `POST /api/track` (função `api/track.js`), que grava na tabela `landing_visits` do MySQL.
+`src/tracking.js` envia cada visita para `POST /api/track` (função `api/track.js`), que grava na tabela `landing_visits` do MySQL. O botão "Get started" repassa `gclid`, `gbraid` e `wbraid` ao site de destino.
 
 ### Configuração
 

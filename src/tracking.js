@@ -28,6 +28,24 @@ function newId() {
   return Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, '0')).join('')
 }
 
+// Acrescenta ao link de saída o identificador do clique: o da URL atual ou,
+// se ela não tiver, o da chegada nesta sessão.
+export function withClickIds(url) {
+  try {
+    const params = new URLSearchParams(window.location.search)
+    const arrival = CLICK_IDS.some((name) => params.get(name))
+      ? Object.fromEntries(params)
+      : readState()?.payload
+    const target = new URL(url)
+    for (const name of CLICK_IDS) {
+      if (arrival?.[name]) target.searchParams.set(name, arrival[name])
+    }
+    return target.href
+  } catch {
+    return url
+  }
+}
+
 export async function trackVisit() {
   try {
     const params = new URLSearchParams(window.location.search)
